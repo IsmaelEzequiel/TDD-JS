@@ -1,6 +1,6 @@
 # Project Title
 
-One Paragraph of project description goes here
+[![Build Status](https://travis-ci.org/IsmaelEzequiel/js-course.svg?branch=master)](https://travis-ci.org/IsmaelEzequiel/js-course)
 
 ## Getting Started
 
