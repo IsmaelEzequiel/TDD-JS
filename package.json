@@ -1,0 +1,62 @@
+{
+  "name": "js-tdd-course",
+  "version": "1.0.0",
+  "description": "Nossa biblioteca do curso de JS com TDD na prática.",
+  "main": "src/index.js",
+  "scripts": {
+    "clear": "rimraf lib",
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:all": "npm run clear && npm run build && npm run build:umd && npm run build:umd:min",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsmaelEzequiel/js-course.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Ismael Ezequiel <email@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IsmaelEzequiel/js-course/issues"
+  },
+  "homepage": "https://github.com/IsmaelEzequiel/js-course#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
+    "husky": "^0.11.9",
+    "mocha": "^3.2.0",
+    "node-fetch": "^1.7.2",
+    "nyc": "^10.2.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^3.2.0",
+    "sinon-chai": "^2.12.0",
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^3.5.4"
+  }
+}
